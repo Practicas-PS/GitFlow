@@ -1,33 +1,33 @@
-name: Publicar contenido en GitHub Pages
+name: publicar contenido en github pages
 
-on: 
-    push:
-        branches: ["main"]
+on:
+    push: 
+        branches: ["master"]
 
-permissions: 
+permissions:
     contents: read
     pages: write
     id-token: write
 
-concurrency: 
+concurrency:
     group: pages
     cancel-in-progress: false
 
 jobs:
-    deploy:
-        environment: 
+    deploy: 
+        environment:
             name: github-pages
             url: ${{ steps.deployment.outputs.page_url }}
         runs-on: ubuntu-latest
         steps:
             - name: Checkout
               uses: actions/checkout@v4
-            - name: Instalar Pages
+            - name: Instalar pages
               uses: actions/configure-pages@v5
-            - name: Cargar página
-              uses: actions/upload-pages-artifact@v3
-              with: 
+            - name: Cargar pagina
+              uses: actions/upload-pages-arctifact@v3
+              with:
                 path: '.'
-            - name: Desplegar página
+            - name: publicar contenido en github pages
               id: deployment
               uses: actions/deploy-pages@v4
