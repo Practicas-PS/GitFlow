@@ -1,9 +1,8 @@
-name: pulicar contenido en githubpages
+name: Publicar contenido en GitHub Pages
 
 on: 
     push:
         branches: ["main"]
-
 
 permissions: 
     contents: read
@@ -19,16 +18,16 @@ jobs:
         environment: 
             name: github-pages
             url: ${{ steps.deployment.outputs.page_url }}
-        runs-on: ubutu-latest
+        runs-on: ubuntu-latest
         steps:
             - name: Checkout
               uses: actions/checkout@v4
-            - name: Instalar pages
+            - name: Instalar Pages
               uses: actions/configure-pages@v5
-            - name: cargar pagina
+            - name: Cargar página
               uses: actions/upload-pages-artifact@v3
               with: 
                 path: '.'
-            - name: desplegar pagina
+            - name: Desplegar página
               id: deployment
               uses: actions/deploy-pages@v4
