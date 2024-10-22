@@ -1,11 +1,11 @@
-name: Deploy content on Github Pages
+name: pulicar contenido en githubpages
 
 on: 
     push:
-        branches: ["master"]
-    
-    workflow_dispatch:
-      
+        branches: ["main"]
+
+    workflow-dispatch:
+
 permissions: 
     contents: read
     pages: write
